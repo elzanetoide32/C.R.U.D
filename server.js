@@ -8,7 +8,8 @@ const puerto = 3001;
 app.use(express.json()); // Para parsear el cuerpo de las peticiones en formato JSON
 
 // Conectar a MongoDB
-const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/dw4';
+// Usa la variable de entorno para la URI de conexión
+const uri = process.env.MONGODB_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Conectado a MongoDB'))
     .catch(err => console.error('Error de conexión:', err));
